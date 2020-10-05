@@ -1,0 +1,42 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\Kerren Du\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js
+
+PATH: 
+  C:\Users\Kerren Du\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\Kerren Du\bin;C:\Program Files (x86)\Intel\iCLS Client;C:\Program Files\Intel\iCLS Client;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\WINDOWS\System32\OpenSSH;C:\Program Files\Git\cmd;E:\soft\anacoda3;E:\soft\anacoda3\Scripts;E:\soft\anacoda3\Library\bin;C:\Program Files\nodejs;C:\Users\Kerren Du\AppData\Local\Microsoft\WindowsApps;C:\Users\Kerren Du\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\Docker Toolbox;E:\soft\anacoda3;E:\soft\anacoda3\Scripts;E:\soft\anacoda3\Library\bin;C:\Users\Kerren Du\AppData\Roaming\npm;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl
+
+Yarn version: 
+  1.22.10
+
+Node version: 
+  8.17.0
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: ENOENT: no such file or directory, copyfile 'C:\Users\Kerren Du\AppData\Local\Yarn\Cache\v6\npm-tar-stream-2.1.4-c4fb1a11eb0da29b893a5b25476397ba2d053bfa-integrity\node_modules\tar-stream\extract.js' -> 'E:\programs\quickkeyword\node_modules\prebuild-install\node_modules\tar-stream\extract.js'
+
+npm manifest: 
+  {
+    "name": "quickkeyword",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "dev": "node src/index.js"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+      "iohook": "^0.6.6",
+      "keypress": "^0.2.1",
+      "robotjs": "^0.6.0"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

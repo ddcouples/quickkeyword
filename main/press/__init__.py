@@ -4,13 +4,16 @@ from pynput import keyboard
 from pynput.keyboard import Key, Controller
 import time
 curkeyboard = Controller()
-
-config=[("j", "g")]
-
+midTime=0.05
+fastTime=0.02
+slowTime=0.1
 def keyboardPress(par):
   curkeyboard.press(par)
-  time.sleep(0.05)
+  time.sleep(midTime)
   curkeyboard.release(par)
+# wasd 上下左右 jkli：ABCD键位
+orderListconfig=[("u", 'dsdasaddaajj'), ('o', 'asadsdaaddjj'), ('h', 'sksk')]
+replaceConfig=[(";", 'jkl')]
 
 def init():
   keyboard_listener=keyboard.Listener(on_press=on_press,on_release=on_release)
@@ -25,47 +28,50 @@ def init():
   
 def on_press(key):
     try:
-        print('alphanumeric key {0} pressed'.format(
+        print('key {0} pressed'.format(
             key.char))
+        for i in range(len(replaceConfig)):
+            (hotkey, keyList)=replaceConfig[i]
+            if (key.char == hotkey):
+                print('replaceConfig bigo {0}'.format(hotkey))
+                for charIndex in range(len(keyList)):
+                    _curKey = keyList[charIndex]
+                    curkeyboard.press(_curKey)
     except AttributeError:
-        print('special key {0} pressed'.format(
+        print('special {0} pressed'.format(
             key))
 
 def on_release(key):
-    print('alphanumeric {0} released'.format(
-        key))
-    if key == keyboard.Key.esc:
-        # Stop listener
-        return False
     try:
-      for i in range(len(config)):
-        (hotkey, keyList)=config[i]
-        if (key.char == hotkey):
-            print('bigo')
-            for charIndex in range(len(keyList)):
-                print(keyList[charIndex])
-                keyboardPress(keyList[charIndex])
-                time.sleep(0.05)
+        print('key {0} released'.format(
+            key))
+        if key == keyboard.Key.esc:
+            # Stop listener
+            return False
+        for i in range(len(replaceConfig)):
+            (hotkey, keyList)=replaceConfig[i]
+            if (key.char == hotkey):
+                print('replaceConfig bigo {0}'.format(hotkey))
+                for charIndex in range(len(keyList)):
+                    _curKey = keyList[charIndex]
+                    curkeyboard.release(_curKey)
+        for i in range(len(orderListconfig)):
+            (hotkey, keyList)=orderListconfig[i]
+            if (key.char == hotkey):
+                print('bigo')
+                # keyList() 
+                curDist={}
+                for _charIndex in range(len(keyList)):
+                    curDist[keyList[_charIndex]] = 0
+                for charIndex in range(len(keyList)):
+                    _curKey = keyList[charIndex]
+                    print(_curKey)
+                    curDist[_curKey] += 1
+                    if curDist[_curKey] % 2 == 0:
+                        curkeyboard.release(_curKey)
+                    else:
+                        curkeyboard.press(_curKey)
+                    time.sleep(fastTime)
     except AttributeError:
         print('special key {0} release'.format(
             key))
-    
-   
-# def on_move(x, y):
-#     print('Pointer moved to {0}'.format(
-#         (x, y)))
-
-# def on_click(x, y, button, pressed):
-#     print('{0} at {1}'.format(
-#         'Pressed' if pressed else 'Released',
-#         (x, y)))
-#     if not pressed:
-#         # Stop listener
-#         return False
-
-# def on_scroll(x, y, dx, dy):
-#     print('Scrolled {0} at {1}'.format(
-#         'down' if dy < 0 else 'up',
-#         (x, y)))
-
-# Collect events until released
